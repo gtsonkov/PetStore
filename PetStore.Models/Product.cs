@@ -17,6 +17,8 @@ namespace PetStore.Models
         [Required]
         public ProductType ProductType { get; set; }
 
+        [Required]
+        [MaxLength(100)]
         public string Name { get; set; }
 
         public decimal Price { get; set; }

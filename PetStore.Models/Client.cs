@@ -16,11 +16,11 @@ namespace PetStore.Models
         public string Id { get; set; }
 
         [Required]
+        [MinLength(6)]
         [MaxLength(30)]
         public string UserName { get; set; }
 
         [Required]
-        [MaxLength(32)]
         public string Password { get; set; }
 
         [Required]
@@ -32,6 +32,7 @@ namespace PetStore.Models
         public string LastName { get; set; }
 
         [Required]
+        [MinLength(6)]
         [MaxLength(100)]
         public string Email { get; set; }
 

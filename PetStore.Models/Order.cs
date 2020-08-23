@@ -16,8 +16,10 @@ namespace PetStore.Models
         [Key]
         public string Id { get; set; }
 
+        [Required]
         public string Town { get; set; }
 
+        [Required]
         public string Address { get; set; }
 
         public string Notes { get; set; }
