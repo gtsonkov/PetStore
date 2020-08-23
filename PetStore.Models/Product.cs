@@ -1,4 +1,5 @@
-﻿using PetStore.Models.Enumerations;
+﻿using PetStore.Common;
+using PetStore.Models.Enumerations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -20,9 +21,10 @@ namespace PetStore.Models
         public ProductType ProductType { get; set; }
 
         [Required]
-        [MaxLength(100)]
+        [MaxLength(GlobalConstants.ProductNameMaxLenght)]
         public string Name { get; set; }
 
+        [Range(GlobalConstants.ProductPriceMin,GlobalConstants.ProductPriceMax)]
         public decimal Price { get; set; }
 
         public virtual ICollection<ClientProducts> ClientProducts { get; set; }

@@ -28,7 +28,7 @@ namespace PetStore.Models
 
         public bool IsSold { get; set; }
 
-        [Range(GlobalConstants.PriceMin,GlobalConstants.PriceMax)]
+        [Range(GlobalConstants.PetPriceMin,GlobalConstants.PetPriceMax)]
         public decimal Price { get; set; }
 
         [Required]

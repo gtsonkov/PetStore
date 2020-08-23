@@ -14,6 +14,11 @@
         public const int EmailMinLenght = 6;
         public const int EmailMaxLenght = 100;
 
+        //Product
+        public const int ProductNameMaxLenght = 100;
+        public const double ProductPriceMin = 0.00;
+        public const double ProductPriceMax = double.MaxValue;
+
         //ClientProducts
         public const int MinQuantity = 0;
         public const int MaxQuantity = 999;
@@ -26,7 +31,11 @@
         public const int PetNameMaxLenght = 30;
         public const int PetMinAge = 0;
         public const int PetMaxAge = 300; // In case Turtle
-        public const double PriceMin = 0.00;
-        public const double PriceMax = double.MaxValue;
+        public const double PetPriceMin = 0.00;
+        public const double PetPriceMax = double.MaxValue;
+
+        //ProductServicxeModel
+        public const int ProductTypeMin = 1;
+        public const int ProductTypeMax = 3;
     }
 }

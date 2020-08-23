@@ -9,8 +9,6 @@ namespace PetStore.Data.EntityConfigurations
         public void Configure(EntityTypeBuilder<Order> builder)
         {
             builder.Ignore(o => o.TotalPrice);
-
-            builder.HasOne(o => o.);
         }
     }
 }
