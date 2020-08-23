@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using PetStore.Common;
+using System.ComponentModel.DataAnnotations;
 
 namespace PetStore.Models
 {
@@ -14,6 +15,12 @@ namespace PetStore.Models
 
         public virtual Product Product { get; set; }
 
+        [Required]
+        public string OrderId { get; set; }
+
+        public virtual Order Order { get; set; }
+
+        [Range(GlobalConstants.MinQuantity,GlobalConstants.MaxQuantity)]
         public int Quantity { get; set; }
     }
 }

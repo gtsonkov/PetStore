@@ -17,6 +17,10 @@ namespace PetStore.Data.EntityConfigurations
             builder.HasOne(c => c.Client)
                 .WithMany(cp => cp.ClientProducts)
                 .HasForeignKey(c => c.ClientId);
+
+            builder.HasOne(o => o.Order)
+                .WithMany(cpo => cpo.ClientProducts)
+                .HasForeignKey(o => o.OrderId);
         }
     }
 }

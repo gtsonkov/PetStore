@@ -28,6 +28,7 @@ namespace PetStore.Models
 
         public bool IsSold { get; set; }
 
+        [Range(GlobalConstants.PriceMin,GlobalConstants.PriceMax)]
         public decimal Price { get; set; }
 
         [Required]
