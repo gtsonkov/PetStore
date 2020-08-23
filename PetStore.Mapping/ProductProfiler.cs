@@ -11,7 +11,11 @@ namespace PetStore.Mapping
         {
             this.CreateMap<AddProductInputServiceModel, Product>();
 
-            this.CreateMap<Product, ListAllProductsByProductType>();
+            this.CreateMap<Product, ListAllProductsByProductTypeServiceModel>()
+                .ForMember(x => x.ProductType, y => y.MapFrom(x => x.ProductType.ToString()));
+
+            this.CreateMap<Product, ListAllProductsServiceModel>()
+                .ForMember(x => x.ProductType, y => y.MapFrom(x => x.ProductType.ToString())); ;
         }
     }
 }

@@ -4,6 +4,7 @@ using PetStore.Common;
 using PetStore.Data;
 using PetStore.Models;
 using PetStore.Models.Enumerations;
+using PetStore.Services.Interfaces;
 using PetStore.Services.Models.Product.InputModels;
 using PetStore.Services.Models.Product.OutputModels;
 using System;
@@ -12,7 +13,7 @@ using System.Linq;
 
 namespace PetStore.Services
 {
-    public class ProductService
+    public class ProductService : IProductService
     {
         private readonly PetShopDbContext _db;
         private readonly IMapper _mapper;
@@ -31,7 +32,7 @@ namespace PetStore.Services
             this._db.SaveChanges();
         }
 
-        public ICollection<ListAllProductsByProductType> ListAllByProductType(string type)
+        public ICollection<ListAllProductsByProductTypeServiceModel> ListAllByProductType(string type)
         {
             ProductType currProductType;
 
@@ -44,7 +45,16 @@ namespace PetStore.Services
 
             var result = this._db.Products
                 .Where(p => p.ProductType == currProductType)
-                .ProjectTo<ListAllProductsByProductType>(this._mapper.ConfigurationProvider)
+                .ProjectTo<ListAllProductsByProductTypeServiceModel>(this._mapper.ConfigurationProvider)
+                .ToList();
+
+            return result;
+        }
+
+        public ICollection<ListAllProductsByProductTypeServiceModel> ListAllProducts()
+        {
+            var result = this._db.Products
+                .ProjectTo<ListAllProductsByProductTypeServiceModel>(this._mapper.ConfigurationProvider)
                 .ToList();
 
             return result;
