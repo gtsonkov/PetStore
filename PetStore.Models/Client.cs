@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PetStore.Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -10,34 +11,37 @@ namespace PetStore.Models
         {
             this.Id = Guid.NewGuid().ToString();
             this.Pets = new HashSet<Pet>();
+            this.ClientProducts = new HashSet<ClientProducts>();
         }
 
         [Key]
         public string Id { get; set; }
 
         [Required]
-        [MinLength(6)]
-        [MaxLength(30)]
+        [MinLength(GlobalConstants.UserNameMinLenght)]
+        [MaxLength(GlobalConstants.UserNameMaxLenght)]
         public string UserName { get; set; }
 
         [Required]
         public string Password { get; set; }
 
         [Required]
-        [MaxLength(40)]
+        [MaxLength(GlobalConstants.FirstNameMaxLenght)]
         public string FirstName { get; set; }
 
         [Required]
-        [MaxLength(80)]
+        [MaxLength(GlobalConstants.LastNameMaxLenght)]
         public string LastName { get; set; }
 
         [Required]
-        [MinLength(6)]
-        [MaxLength(100)]
+        [MinLength(GlobalConstants.EmailMinLenght)]
+        [MaxLength(GlobalConstants.EmailMaxLenght)]
         public string Email { get; set; }
 
         public string Telefon { get; set; }
 
         public virtual ICollection<Pet> Pets { get; set; }
+
+        public virtual ICollection<ClientProducts> ClientProducts { get; set; }
     }
 }

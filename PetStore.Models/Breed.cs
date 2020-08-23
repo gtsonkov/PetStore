@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PetStore.Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -15,8 +16,8 @@ namespace PetStore.Models
         [Key]
         public string Id { get; set; }
 
-        [MaxLength(30)]
-        [MinLength(5)]
+        [MaxLength(GlobalConstants.BreedNameMaxLenght)]
+        [MinLength(GlobalConstants.BreedNameMinLenght)]
         [Required]
         public string Name { get; set; }
 

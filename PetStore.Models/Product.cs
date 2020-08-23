@@ -1,5 +1,6 @@
 ﻿using PetStore.Models.Enumerations;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace PetStore.Models
@@ -9,6 +10,7 @@ namespace PetStore.Models
         public Product()
         {
             this.Id = Guid.NewGuid().ToString();
+            this.ClientProducts = new HashSet<ClientProducts>();
         }
 
         [Key]
@@ -22,5 +24,7 @@ namespace PetStore.Models
         public string Name { get; set; }
 
         public decimal Price { get; set; }
+
+        public virtual ICollection<ClientProducts> ClientProducts { get; set; }
     }
 }

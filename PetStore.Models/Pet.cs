@@ -1,4 +1,5 @@
-﻿using PetStore.Models.Enumerations;
+﻿using PetStore.Common;
+using PetStore.Models.Enumerations;
 using System;
 using System.ComponentModel.DataAnnotations;
 
@@ -15,13 +16,14 @@ namespace PetStore.Models
         public string Id { get; set; } //GUID ID must be generated in Constructor
 
         [Required]
-        [MaxLength(50)]
+        [MaxLength(GlobalConstants.PetNameMaxLenght)]
         public string Name { get; set; }
 
         [Required]
         public Gender Gender { get; set; }
 
         [Required]
+        [Range(GlobalConstants.PetMinAge,GlobalConstants.PetMaxAge)]
         public int Age { get; set; }
 
         public bool IsSold { get; set; }
