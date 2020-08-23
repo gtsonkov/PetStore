@@ -1,8 +1,6 @@
-﻿using PetStore.Models.Enumerations;
-
-namespace PetStore.Services.Models.Product.OutputModels
+﻿namespace PetStore.Services.Models.Product.OutputModels
 {
-    public class ListAllProductsServiceModel
+    public class ListAllProductsByNameServiceModel
     {
         public string ProductType { get; set; }
 

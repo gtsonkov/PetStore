@@ -4,10 +4,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace PetStore.Services.Models.Product.InputModels
 {
-    public class AddProductInputServiceModel
+    public class EditProductServiceModel
     {
         [Required]
-        [Range(GlobalConstants.ProductTypeMin,GlobalConstants.ProductTypeMax)]
+        [Range(GlobalConstants.ProductTypeMin, GlobalConstants.ProductTypeMax)]
         public string ProductType { get; set; }
 
         [Required]
