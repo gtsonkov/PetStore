@@ -24,7 +24,7 @@ namespace PetStore.Services
             this._mapper = mapper;
         }
 
-        public void AddProduct(AddProductInputServiceModel model)
+        public void AddProduct(AddProductServiceModel model)
         {
             Product currProduct = null;
             try

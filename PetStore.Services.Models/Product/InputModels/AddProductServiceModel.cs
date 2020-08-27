@@ -1,10 +1,9 @@
 ﻿using PetStore.Common;
-using PetStore.Models.Enumerations;
 using System.ComponentModel.DataAnnotations;
 
 namespace PetStore.Services.Models.Product.InputModels
 {
-    public class AddProductInputServiceModel
+    public class AddProductServiceModel
     {
         [Required]
         [Range(GlobalConstants.ProductTypeMin,GlobalConstants.ProductTypeMax)]

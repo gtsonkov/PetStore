@@ -6,7 +6,7 @@ namespace PetStore.Services.Interfaces
 {
     public interface IProductService
     {
-        public void AddProduct(AddProductInputServiceModel model);
+        public void AddProduct(AddProductServiceModel model);
 
         public ICollection<ListAllProductsByProductTypeServiceModel> ListAllByProductType(string type);
 

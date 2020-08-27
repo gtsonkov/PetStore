@@ -11,7 +11,7 @@ namespace PetStore.Mapping
     {
         public ProductProfiler()
         {
-            this.CreateMap<AddProductInputServiceModel, Product>()
+            this.CreateMap<AddProductServiceModel, Product>()
                 .ForMember(x => x.ProductType, y => y.MapFrom(x=> Enum.Parse(typeof(ProductType),x.ProductType)));
 
             this.CreateMap<Product, ListAllProductsByProductTypeServiceModel>()
