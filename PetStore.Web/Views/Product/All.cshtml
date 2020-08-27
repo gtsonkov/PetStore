@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PetStore.Services.Models.Product.OutputModels.ListAllProductsByProductTypeServiceModel>
+﻿@model IEnumerable<PetStore.Services.Models.Product.OutputModels.ListAllProductsServiceModel>
 
 @{
     ViewData["Title"] = "All";
@@ -7,7 +7,11 @@
 <h1>All</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    
+    @if (!this.User.IsInRole("Admin"))
+    {
+        <a class="btn btn-success" asp-action="Create">Create New</a>
+    }
 </p>
 <table class="table">
     <thead>
@@ -28,6 +32,9 @@
 @foreach (var item in Model) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.ProductId)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.ProductType)
             </td>
             <td>
@@ -37,9 +44,9 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.ProductId">Edit</a> |
+                <a class="btn btn-info" asp-action="Details" asp-route-id="@item.ProductId">Details</a> |
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.ProductId">Delete</a>
             </td>
         </tr>
 }

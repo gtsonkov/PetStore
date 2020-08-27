@@ -10,7 +10,7 @@ namespace PetStore.Services.Interfaces
 
         public ICollection<ListAllProductsByProductTypeServiceModel> ListAllByProductType(string type);
 
-        public ICollection<ListAllProductsByProductTypeServiceModel> ListAllProducts();
+        public ICollection<ListAllProductsServiceModel> GetAll();
 
         public ICollection<ListAllProductsByNameServiceModel> SearchByName(string searchString, bool caseSensitive);
 

@@ -85,10 +85,10 @@ namespace PetStore.Services
             return result;
         }
 
-        public ICollection<ListAllProductsByProductTypeServiceModel> ListAllProducts()
+        public ICollection<ListAllProductsServiceModel> GetAll()
         {
             var result = this._db.Products
-                .ProjectTo<ListAllProductsByProductTypeServiceModel>(this._mapper.ConfigurationProvider)
+                .ProjectTo<ListAllProductsServiceModel>(this._mapper.ConfigurationProvider)
                 .ToList();
 
             return result;

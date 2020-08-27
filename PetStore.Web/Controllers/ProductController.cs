@@ -19,7 +19,7 @@ namespace PetStore.Web.Controllers
 
         public IActionResult All()
         {
-            var result = this._productService.ListAllProducts();
+            var result = this._productService.GetAll();
 
             return View(result);
         }
