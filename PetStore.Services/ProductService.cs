@@ -10,6 +10,7 @@ using PetStore.Services.Models.Product.OutputModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace PetStore.Services
 {
@@ -94,6 +95,21 @@ namespace PetStore.Services
             return result;
         }
 
+        public EditProductServiceModel GetById (string id)
+        {
+            var currProduct = this._db.Products
+                .Where(x => x.Id == id)
+                .ProjectTo<EditProductServiceModel>(this._mapper.ConfigurationProvider)
+                .FirstOrDefault();
+
+            if (currProduct == null)
+            {
+                throw new ArgumentException(ExceptionMessages.ProductDoesNotExist);
+            }
+
+            return currProduct;
+        }
+
         public bool RemoveById(string id)
         {
             var productToRemove = this._db.Products.FirstOrDefault(p => p.Id == id);
@@ -152,7 +168,9 @@ namespace PetStore.Services
                 throw new ArgumentException(ExceptionMessages.NoProductWithGivenId);
             }
 
-            productToUpdate = currProduct;
+            productToUpdate.Price = currProduct.Price;
+            productToUpdate.Name = currProduct.Name;
+            productToUpdate.ProductType = currProduct.ProductType;
 
             int affectedRows = this._db.SaveChanges();
 

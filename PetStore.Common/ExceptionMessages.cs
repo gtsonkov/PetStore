@@ -9,5 +9,6 @@
 
         public const string NoProductWithGivenId = "No product found with given Id";
 
+        public const string ProductDoesNotExist = "Product with the given Id does not exist";
     }
 }

@@ -28,6 +28,9 @@ namespace PetStore.Mapping
 
             this.CreateMap<EditProductServiceModel, Product>()
                 .ForMember(x => x.ProductType, y => y.MapFrom(x => Enum.Parse(typeof(ProductType), x.ProductType)));
+
+            this.CreateMap<Product, EditProductServiceModel>()
+                .ForMember(x => x.ProductType, y => y.MapFrom(x => x.ProductType.ToString()));
         }
     }
 }

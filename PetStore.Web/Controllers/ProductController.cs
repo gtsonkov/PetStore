@@ -41,5 +41,27 @@ namespace PetStore.Web.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public IActionResult Delete(string id)
+        {
+            this._productService.RemoveById(id);
+
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Edit(string id)
+        {
+            var currModel = this._productService.GetById(id);
+
+            return View(currModel);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(EditProductServiceModel model)
+        {
+            this._productService.EditProduct(model.Id, model);
+
+            return RedirectToAction("Index");
+        }
     }
 }
