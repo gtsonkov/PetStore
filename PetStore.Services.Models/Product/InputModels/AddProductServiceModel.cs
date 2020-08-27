@@ -6,7 +6,6 @@ namespace PetStore.Services.Models.Product.InputModels
     public class AddProductServiceModel
     {
         [Required]
-        [Range(GlobalConstants.ProductTypeMin,GlobalConstants.ProductTypeMax)]
         public string ProductType { get; set; }
 
         [Required]
