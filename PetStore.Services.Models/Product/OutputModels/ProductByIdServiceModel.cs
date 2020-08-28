@@ -1,6 +1,6 @@
 ﻿namespace PetStore.Services.Models.Product.OutputModels
 {
-    public class ProductViewServiceModel
+    public class ProductByIdServiceModel
     {
         public string ProductType { get; set; }
 

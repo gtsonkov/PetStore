@@ -1,0 +1,29 @@
+﻿@model PetStore.Services.Models.Product.InputModels.EditProductServiceModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="text-center">Details</h1>
+
+<div class="justify-content-center jumbotron-fluid">
+    <table class="table table-striped">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.ProductType)</th>
+            <td>@Html.DisplayFor(model => model.ProductType)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Name)</th>
+            <td>@Html.DisplayFor(model => model.Name)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Price)</th>
+            <td>@Html.DisplayFor(model => model.Price)</td>
+        </tr>
+
+    </table>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { Model.Id }) |
+    <a asp-action="Index">Back to List</a>
+</div>
