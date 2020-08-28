@@ -1,17 +1,24 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using PetStore.Common;
 using PetStore.Services.Interfaces;
 using PetStore.Services.Models.Product.InputModels;
+using PetStore.Services.Models.Product.OutputModels;
+using System;
+using System.Collections.Generic;
 
 namespace PetStore.Web.Controllers
 {
     public class ProductController : Controller
     {
         private readonly IProductService _productService;
+        private readonly IMapper _mapper;
 
-        public ProductController(IProductService productService)
+        public ProductController(IProductService productService, IMapper mapper)
         {
             this._productService = productService;
+            this._mapper = mapper;
         }
 
         [HttpGet]
@@ -69,6 +76,21 @@ namespace PetStore.Web.Controllers
             this._productService.EditProduct(model.Id, model);
 
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult Search(string searchString)
+        {
+            if (string.IsNullOrWhiteSpace(searchString))
+            {
+                return RedirectToAction("All");
+            }
+
+            var result = this._productService.SearchByName(searchString, false);
+
+            var models = this._mapper.Map<List<ListAllProductsServiceModel>>(result);
+
+            return View("All",models);
         }
     }
 }

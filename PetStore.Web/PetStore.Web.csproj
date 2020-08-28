@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PetStore.Common\PetStore.Common.csproj" />
     <ProjectReference Include="..\PetStore.Data\PetStore.Data.csproj" />
     <ProjectReference Include="..\PetStore.Mapping\PetStore.Mapping.csproj" />
     <ProjectReference Include="..\PetStore.Services\PetStore.Services.csproj" />

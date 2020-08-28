@@ -18,6 +18,7 @@ namespace PetStore.Mapping
                 .ForMember(x => x.ProductType, y => y.MapFrom(x => x.ProductType.ToString()));
 
             this.CreateMap<Product, ListAllProductsServiceModel>()
+                .ForMember(x => x.ProductId, y=> y.MapFrom(x => x.Id))
                 .ForMember(x => x.ProductType, y => y.MapFrom(x => x.ProductType.ToString()));
 
             this.CreateMap<Product, ListAllProductsByNameServiceModel>()
@@ -31,6 +32,8 @@ namespace PetStore.Mapping
 
             this.CreateMap<Product, EditProductServiceModel>()
                 .ForMember(x => x.ProductType, y => y.MapFrom(x => x.ProductType.ToString()));
+
+            this.CreateMap<ListAllProductsByNameServiceModel, ListAllProductsServiceModel>();
         }
     }
 }
