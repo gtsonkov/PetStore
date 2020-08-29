@@ -1,11 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using PetStore.Common;
 using PetStore.Models;
 using System.Reflection;
 
 namespace PetStore.Data
 {
-    public class PetShopDbContext : DbContext
+    public class PetShopDbContext : IdentityDbContext
     {
         public PetShopDbContext()
         {
@@ -39,7 +41,9 @@ namespace PetStore.Data
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
+
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
     }
